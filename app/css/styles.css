@@ -1,0 +1,76 @@
+html {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(#eef9e3, #f5f9e5);
+  height: 100%;
+}
+
+.done {
+  text-decoration: line-through;
+  background-color: #c6d3cb;
+}
+
+.gone {
+  display: none;
+}
+
+.btn {
+  margin: 0 3px 0 3px;
+}
+
+.badge {
+  color: black;
+  background-color: white;
+  border: 1px black solid;
+  margin-right: 10px;
+}
+
+.glyphicon.glyphicon-ok {
+  margin: 0 5px 0 2px;
+  color: blue;
+  border: 1px solid blue;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.glyphicon.glyphicon-trash {
+  margin: 0 5px 0 2px;
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.appLogo {
+  position: relative;
+}
+
+.appTitle {
+  border: 1px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 5px 5px 2px #888888;
+}
+
+.appLogoName {
+  color: #f5f9e5;
+  text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 2px 0 #000, 2px 2px 0 #000;
+}
+
+.groceryItems {
+  text-transform: uppercase;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.itemEntry {
+  padding: 0;
+}
