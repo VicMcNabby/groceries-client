@@ -9,15 +9,70 @@ body {
 
 .done {
   text-decoration: line-through;
-  background-color: #c6d3cb;
+  background-color: #96BE8C;
 }
 
 .gone {
+  display: none !important;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 300%;
+  }
+
+  to {
+    margin-right: 0%;
+  }
+}
+
+.editForm {
+  animation-duration: 1s;
+  animation-name: slidein;
   display: none;
+  min-width: 95%;
+  position: absolute;
+  z-index: 99999;
+}
+
+.editBody {
+  border-radius: 10px;
+}
+
+.editHeader {
+  text-transform: lowercase;
+  font-family: sans-serif;
+}
+
+.img-thumbnail {
+  background-color: #b7d5e8;
+}
+
+.orderAisleButton {
+  background-color: #38E4AE;
+  color: black;
+}
+
+.orderItemButton {
+  background-color: #343E3D;
+  color: white;
+}
+
+.orderItemButton:hover {
+  background-color: #7dc1bb;
+  color: black;
+}
+.orderAisleButton:hover {
+  color: white;
+  background-color: #25725a;
 }
 
 .btn {
   margin: 0 3px 0 3px;
+}
+
+label {
+    font-weight: bold;
 }
 
 .badge {
@@ -45,6 +100,15 @@ body {
   cursor: pointer;
 }
 
+.editButton {
+  color: #46b55c;
+  cursor: pointer;
+}
+
+.editButton:hover {
+  color: green;
+}
+
 .appLogo {
   position: relative;
 }
@@ -59,18 +123,56 @@ body {
 }
 
 .appLogoName {
-  color: #f5f9e5;
+  color: white;
   text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 2px 0 #000, 2px 2px 0 #000;
 }
 
 .groceryItems {
   text-transform: uppercase;
-  height: 50px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-radius: 6px;
 }
 
 .itemEntry {
   padding: 0;
+}
+
+.appName {
+  font-family: sans-serif;
+  margin-left: 30px;
+  margin-bottom: 6px;
+  color: white
+}
+
+.appName2 {
+  font-family: sans-serif;
+  margin-top: 0px;
+  margin-left: 71px;
+  color: white;
+}
+
+.letters {
+  margin-left: 3px;
+  text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 2px 0 #000, 2px 2px 0 #000;
+}
+
+.initial {
+  font-family: sans-serif;
+  color: white;
+  border: 1px solid white;
+  padding: 0px 6px 1px 3px;
+  box-shadow: 1px 1px 1px grey;
+  background-color: green
+}
+
+.initial2 {
+  font-family: sans-serif;
+  color: white;
+  border: 1px solid white;
+  padding: 0px 10px 0px 8px;
+  box-shadow: 1px 1px 1px grey;
+  background-color: green
 }

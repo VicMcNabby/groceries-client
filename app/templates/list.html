@@ -1,43 +1,81 @@
-<div class="container appTitle" style="background-image:url(http://www.adventuresnw.com/wp-content/uploads/2013/06/2009-06-12-GroceryStore.jpg);">
+<div class="container appTitle" style="background-image:url(https://iwellnesslife.com/wp-content/uploads/2017/02/grocery.jpg);background-size: cover;">
   <i class="fa fa-shopping-cart fa-5x appLogoName" aria-hidden="true"></i>
-  <h2 class="appLogoName">Grocery List App</h2>
+  <h1 class="appName"><span class="initial">Gr</span><span class="letters">ocery</span></h1>
+  <h1 class="appName2"><span class="initial2">Li</span><span class="letters">st</span></h1>
 </div>
 <form class="form">
   <div class="form-group">
-    <label class="text-uppercase" for="item">Add an item</label>
-    <input ng-model="$ctrl.newItem.title" type="text" class="form-control" id="item" placeholder="Grocery item" />
-    <p class="help-block">
-      Enter an item and an Aisle, then click add
-    </p>
+    <label for="item">Add an item</label>
+    <input ng-model="$ctrl.newItem.name" type="text" class="form-control" id="item" placeholder="Grocery item" />
+  </div>
+  <div class="form-group">
+    <label for="item">Add a photo</label>
+    <input ng-model="$ctrl.newItem.photo_url" type="text" class="form-control" id="item" placeholder="Grocery photo" />
   </div>
   <div class="form-group">
     <label for="item">Aisle</label>
     <input ng-model="$ctrl.newItem.aisle" type="number" class="form-control" placeholder="Aisle">
   </div>
-  <div class="toDoButton">
-    <button ng-click="$ctrl.addItem()" type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Add To List</button>
+  <div class="addItemButton">
+    <button ng-click="$ctrl.addItem()" type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add To List</button>
+    <button ng-click="orderProperty='aisle'" type="button" class="orderAisleButton btn pull-right"><span class="glyphicon glyphicon-sort" aria-hidden="true"></span> Aisle</button>
+    <button ng-click="orderProperty='name'" type="button" class="orderItemButton btn pull-right"><span class="glyphicon glyphicon-sort" aria-hidden="true"></span> Item</button>
+
   </div>
 </form>
 </br>
 <section>
   <div class="row">
-    <p class="col-xs-5 itemTitle">
+    <p class="col-xs-2">
+
+    </p>
+    <p class="col-xs-2 itemTitle">
+      IMAGE
+    </p>
+    <p class="col-xs-3 itemTitle">
       ITEM
     </p>
-    <p class="col-xs-7 aisleTitle">
+    <p class="col-xs-5 aisleTitle">
       AISLE
     </p>
   </div>
   <ul class="list-group">
-    <li ng-class="{
-      done: item.done,
-    }" class="list-group-item groceryItems" ng-repeat="item in $ctrl.items | orderBy: 'aisle'">
-      <span class="col-xs-2 itemEntry">
-        {{item.title}}
+    <li ng-class="{done: item.done, gone: item.gone}" class="list-group-item groceryItems" ng-repeat="item in $ctrl.items | orderBy: orderProperty" >
+    <span ng-click="$ctrl.openEdit(item)" class="editButton glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    <div class="editForm" ng-class="{show: item.show}">
+      <div class="editBody modal-content">
+        <div class="modal-header">
+          <button type="button" class="close closeButton" ng-click="$ctrl.closeEditForm(item)">&times;</button>
+          <h6 class="modal-title"><span class="editHeader"><i>Edit</i></span> {{item.name}}</h6>
+        </div>
+        <div class="modal-body">
+          <form class="form">
+            <div class="form-group">
+              <label for="item">Name</label>
+              <input ng-model="$ctrl.editItem.name" type="text" class="form-control" id="item" placeholder={{item.name}} />
+            </div>
+            <div class="form-group">
+              <label for="item">Photo</label>
+              <input ng-model="$ctrl.editItem.photo_url" type="text" class="form-control" placeholder={{item.photo_url}} />
+            </div>
+            <div class="form-group">
+              <label for="item">Aisle</label>
+              <input ng-model="$ctrl.editItem.aisle" type="number" class="form-control" placeholder={{item.aisle}}>
+            </div>
+            <div class="addItemButton">
+              <button ng-click="$ctrl.editItem(item)" type="button" class="btn btn-success">Update</button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+    <img class="img-responsive img-thumbnail" style="height:80px; width:80px; object-fit:cover" ng-src={{item.photo_url}} />
+      <span class="col-xs-3 itemEntry">
+        {{item.name}}
       </span>
-      <span ng-class="{done: todo.done}" class="badge pull-left">{{item.aisle}}</span>
+      <span class="badge">{{item.aisle}}</span>
       <div class="groceryButtons">
-        <button ng-click="$ctrl.delete($index)" type="button" class="btn btn-danger pull-right hidden-xs">Remove</button><span ng-click="$ctrl.delete($index)" class="glyphicon glyphicon-trash pull-right visible-xs" aria-hidden="true"></span>
+        <button ng-click="$ctrl.delete(item, $index)" type="button" class="btn btn-danger pull-right hidden-xs">Remove</button><span ng-click="$ctrl.delete(item, $index)" class="glyphicon glyphicon-trash pull-right visible-xs" aria-hidden="true"></span>
         <button ng-click="$ctrl.markDone(item)" type="button" class="btn btn-primary pull-right hidden-xs">In Cart</button><span ng-click="$ctrl.markDone(item)" class="glyphicon glyphicon-ok pull-right visible-xs" aria-hidden="true"></span>
       </div>
     </li>
