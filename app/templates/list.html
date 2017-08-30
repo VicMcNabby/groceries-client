@@ -1,19 +1,18 @@
 <div class="container appTitle" style="background-image:url(https://iwellnesslife.com/wp-content/uploads/2017/02/grocery.jpg);background-size: cover;">
-  <i class="fa fa-shopping-cart fa-5x appLogoName" aria-hidden="true"></i>
-  <h1 class="appName"><span class="initial">Gr</span><span class="letters">ocery</span></h1>
-  <h1 class="appName2"><span class="initial2">Li</span><span class="letters">st</span></h1>
+  <h1 class="appName"><span class="initial"><b>Gr</b></span><span class="letters">ocery</span></h1>
+  <h1 class="appName2"><span class="initial2"><b>Li</b></span></span><span class="letters">st</span></h1>
 </div>
 <form class="form">
   <div class="form-group">
-    <label for="item">Add an item</label>
+    <label class="listLabels" for="item">Add an item</label>
     <input ng-model="$ctrl.newItem.name" type="text" class="form-control" id="item" placeholder="Grocery item" />
   </div>
   <div class="form-group">
-    <label for="item">Add a photo</label>
+    <label class="listLabels" for="item">Add a photo</label>
     <input ng-model="$ctrl.newItem.photo_url" type="text" class="form-control" id="item" placeholder="Grocery photo" />
   </div>
   <div class="form-group">
-    <label for="item">Aisle</label>
+    <label class="listLabels" for="item">Aisle</label>
     <input ng-model="$ctrl.newItem.aisle" type="number" class="form-control" placeholder="Aisle">
   </div>
   <div class="addItemButton">
@@ -46,20 +45,22 @@
       <div class="editBody modal-content">
         <div class="modal-header">
           <button type="button" class="close closeButton" ng-click="$ctrl.closeEditForm(item)">&times;</button>
-          <h6 class="modal-title"><span class="editHeader"><i>Edit</i></span> {{item.name}}</h6>
+          <img class="img-responsive img-thumbnail" style="height:80px; width:80px; object-fit:cover" ng-src={{item.photo_url}} />
+          <h6 class="editItemHeader modal-title"><span class="editHeader"><i><b>Edit</b></i></span> {{item.name}}</h6>
+          <!-- <img class="img-responsive img-thumbnail" style="height:80px; width:80px; object-fit:cover" ng-src={{item.photo_url}} /> -->
         </div>
         <div class="modal-body">
           <form class="form">
             <div class="form-group">
-              <label for="item">Name</label>
-              <input ng-model="$ctrl.editItem.name" type="text" class="form-control" id="item" placeholder={{item.name}} />
+              <label class="listLabels" for="item">Name</label>
+              <input ng-model="$ctrl.editItem.title" type="text" class="form-control" id="item" placeholder={{item.name}} />
             </div>
             <div class="form-group">
-              <label for="item">Photo</label>
+              <label class="listLabels" for="item">Photo</label>
               <input ng-model="$ctrl.editItem.photo_url" type="text" class="form-control" placeholder={{item.photo_url}} />
             </div>
             <div class="form-group">
-              <label for="item">Aisle</label>
+              <label class="listLabels" for="item">Aisle</label>
               <input ng-model="$ctrl.editItem.aisle" type="number" class="form-control" placeholder={{item.aisle}}>
             </div>
             <div class="addItemButton">

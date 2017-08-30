@@ -57,27 +57,38 @@
         item.done = true;
       };
 
-      vm.editItem = function(item, $index) {
+      vm.editItem = function(item) {
         let ID = item.id
-        console.log(item, $index)
+
+        if (vm.editItem && vm.editItem.title && vm.editItem.aisle) {
+          if(!vm.editItem.photo_url) {
+            vm.editItem.photo_url = 'http://www.nashvilledeliveredgoods.com/groceries.jpg'
+        }
+
         let data = {
-          "name": vm.editItem.name,
+          "name": vm.editItem.title,
           "aisle": vm.editItem.aisle,
           "photo_url": vm.editItem.photo_url
         }
-        console.log(data)
-        // $http.put(`${itemsURL}/${ID}`, data)
-        item.show = false
-      }
 
+        $http.put(`${itemsURL}/${ID}`, data)
+
+        vm.items.push({
+          name: vm.editItem.title,
+          aisle: vm.editItem.aisle,
+          photo_url: vm.editItem.photo_url
+        })
+
+        item.gone = true;
+        item.show = false;
+        };
+      };
 
       vm.openEdit = function(item) {
         item.show = true
-        event.preventDefault();
       }
 
       vm.closeEditForm = function(item) {
-        console.log(item);
         item.show = false
       }
 
@@ -85,7 +96,6 @@
         let ID = item.id
         item.gone = true;
         $http.delete(`${itemsURL}/${ID}`)
-        // vm.items.splice($index, 1)
       };
 
     }
