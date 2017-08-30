@@ -2,6 +2,9 @@
   <h1 class="appName"><span class="initial"><b>Gr</b></span><span class="letters">ocery</span></h1>
   <h1 class="appName2"><span class="initial2"><b>Li</b></span></span><span class="letters">st</span></h1>
 </div>
+
+<!-- /////////ADD ITEM FORM//////////// -->
+
 <form class="form">
   <div class="form-group">
     <label class="listLabels" for="item">Add an item</label>
@@ -22,6 +25,9 @@
 
   </div>
 </form>
+
+<!-- //////////////////////////// -->
+
 </br>
 <section>
   <div class="row">
@@ -41,13 +47,15 @@
   <ul class="list-group">
     <li ng-class="{done: item.done, gone: item.gone}" class="list-group-item groceryItems" ng-repeat="item in $ctrl.items | orderBy: orderProperty" >
     <span ng-click="$ctrl.openEdit(item)" class="editButton glyphicon glyphicon-pencil" aria-hidden="true"></span>
+
+    <!-- ///////EDIT FORM MODAL/////// -->
+
     <div class="editForm" ng-class="{show: item.show}">
       <div class="editBody modal-content">
         <div class="modal-header">
           <button type="button" class="close closeButton" ng-click="$ctrl.closeEditForm(item)">&times;</button>
           <img class="img-responsive img-thumbnail" style="height:80px; width:80px; object-fit:cover" ng-src={{item.photo_url}} />
           <h6 class="editItemHeader modal-title"><span class="editHeader"><i><b>Edit</b></i></span> {{item.name}}</h6>
-          <!-- <img class="img-responsive img-thumbnail" style="height:80px; width:80px; object-fit:cover" ng-src={{item.photo_url}} /> -->
         </div>
         <div class="modal-body">
           <form class="form">
@@ -70,6 +78,9 @@
         </div>
     </div>
   </div>
+
+<!-- /////////////////////////// -->
+
     <img class="img-responsive img-thumbnail" style="height:80px; width:80px; object-fit:cover" ng-src={{item.photo_url}} />
       <span class="col-xs-3 itemEntry">
         {{item.name}}

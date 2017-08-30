@@ -7,118 +7,8 @@ body {
   height: 100%;
 }
 
-.done {
-  text-decoration: line-through;
-  background-color: #96BE8C;
-}
-
-.gone {
-  display: none !important;
-}
-
-.listLabels {
-  /*font-family: 'Dosis', serif;*/
-  font-family: 'Oswald', sans-serif;
-}
-
-@keyframes slidein {
-  from {
-    margin-left: 300%;
-  }
-
-  to {
-    margin-right: 0%;
-  }
-}
-
-.editForm {
-  animation-duration: 1s;
-  animation-name: slidein;
-  display: none;
-  min-width: 95%;
-  position: absolute;
-  z-index: 99999;
-}
-
-.editBody {
-  border-radius: 10px;
-  background: linear-gradient(#e5f9f8, white);
-}
-
-.editHeader {
-  text-transform: lowercase;
-  font-family: sans-serif;
-}
-
-.img-thumbnail {
-  background-color: #b7d5e8;
-}
-
-.orderAisleButton {
-  background-color: #38E4AE;
-  color: black;
-}
-
-.orderItemButton {
-  background-color: #343E3D;
-  color: white;
-}
-
-.orderItemButton:hover {
-  background-color: #7dc1bb;
-  color: black;
-}
-.orderAisleButton:hover {
-  color: white;
-  background-color: #25725a;
-}
-
-.btn {
-  margin: 0 3px 0 3px;
-}
-
-label {
-    font-weight: bold;
-}
-
-.badge {
-  color: black;
-  background-color: white;
-  border: 1px black solid;
-  margin-right: 10px;
-}
-
-.glyphicon.glyphicon-ok {
-  margin: 0 5px 0 2px;
-  color: blue;
-  border: 1px solid blue;
-  border-radius: 5px;
-  padding: 5px;
-  cursor: pointer;
-}
-
-.glyphicon.glyphicon-trash {
-  margin: 0 5px 0 2px;
-  color: red;
-  border: 1px solid red;
-  border-radius: 5px;
-  padding: 5px;
-  cursor: pointer;
-}
-
-.editItemHeader {
-  font-family: 'Arimo', sans-serif;
-  text-align: center;
-}
-
-.editButton {
-  color: #46b55c;
-  cursor: pointer;
-}
-
-.editButton:hover {
-  color: green;
-}
+/*/////////////////////////////////////
+////////////APP HEADER///////////////*/
 
 .appLogo {
   position: relative;
@@ -131,21 +21,6 @@ label {
   border-radius: 6px;
   text-align: center;
   box-shadow: 5px 5px 2px #888888;
-}
-
-.groceryItems {
-  text-transform: uppercase;
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 6px;
-}
-
-.itemEntry {
-  padding: 0;
-  /*font-family: 'Oswald', sans-serif;*/
-  font-family: 'Arimo', sans-serif;
 }
 
 .appName {
@@ -183,4 +58,139 @@ label {
   padding: 0px 10px 0px 10px;
   box-shadow: 1px 1px 1px grey;
   background: linear-gradient(to bottom right, #124415, #19661d);
+}
+
+/*//////////////////////////////////////
+//////////////EDIT FORM///////////////*/
+
+@keyframes slidein {
+  from {
+    margin-left: 300%;
+  }
+
+  to {
+    margin-right: 0%;
+  }
+}
+
+.editForm {
+  animation-duration: 1s;
+  animation-name: slidein;
+  display: none;
+  min-width: 95%;
+  position: absolute;
+  z-index: 99999;
+}
+
+.editBody {
+  border-radius: 10px;
+  background: linear-gradient(to bottom right, #e5f9f8, white);
+}
+
+.editHeader {
+  text-transform: lowercase;
+  font-family: sans-serif;
+}
+
+.editItemHeader {
+  font-family: 'Arimo', sans-serif;
+  text-align: center;
+}
+
+.editButton {
+  color: #46b55c;
+  cursor: pointer;
+}
+
+.editButton:hover {
+  color: green;
+}
+
+/*///////////////////////////////////
+///////////BUTTONS////////////////*/
+
+.orderAisleButton {
+  background-color: #38E4AE;
+  color: black;
+}
+
+.orderItemButton {
+  background-color: #343E3D;
+  color: white;
+}
+
+.orderItemButton:hover {
+  background-color: #7dc1bb;
+  color: black;
+}
+.orderAisleButton:hover {
+  color: white;
+  background-color: #25725a;
+}
+
+.btn {
+  margin: 0 3px 0 3px;
+}
+
+.glyphicon.glyphicon-ok {
+  margin: 0 5px 0 2px;
+  color: blue;
+  border: 1px solid blue;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.glyphicon.glyphicon-trash {
+  margin: 0 5px 0 2px;
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+/*/////////////////////////////////
+////////////LIST ASSESTS/////////*/
+
+.done {
+  text-decoration: line-through;
+  background-color: #96BE8C;
+}
+
+.gone {
+  display: none !important;
+}
+
+.listLabels {
+  font-family: 'Oswald', sans-serif;
+}
+
+.img-thumbnail {
+  background-color: #b7d5e8;
+}
+
+label {
+  font-weight: bold;
+}
+
+.badge {
+  color: black;
+  background-color: white;
+  border: 1px black solid;
+  margin-right: 10px;
+}
+
+.groceryItems {
+  text-transform: uppercase;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 6px;
+}
+
+.itemEntry {
+  padding: 0;
+  font-family: 'Arimo', sans-serif;
 }
